@@ -11,6 +11,11 @@ public class ResourceManager
 
     public GameObject Instantiate(string path, Transform parent = null)
     {
+
+        // 1. originaml 이미 들고 있으면 바로 사용
+        // 2. 혹시 풀링된 애가 있을까?
+        // 3. Destroy도 PoolManager에 위탁을 하면?
+
         GameObject prefab = Load<GameObject>($"Prefabs/{path}");
         if (prefab == null)
         {
