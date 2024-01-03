@@ -75,10 +75,13 @@ public class PlayerController : MonoBehaviour
 	}
 
 	void OnMouseClicked(Define.MouseEvent evt)
-	{
-		if (_state == PlayerState.Die)
-			return;
+    {
 
+		if (_state == PlayerState.Die)
+		{
+			Debug.Log("die");
+			return;
+		}
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
 
