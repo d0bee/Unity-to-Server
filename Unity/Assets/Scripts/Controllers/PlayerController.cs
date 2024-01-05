@@ -12,19 +12,9 @@ public class PlayerController : MonoBehaviour
 	Texture2D _attackIcon;
 	Texture2D _basicIcon;
 
-	enum CursorType
-	{
-		None,
-		Basic,
-		Attack,
-	}
-	CursorType _cursorType = CursorType.None;
 
     void Start()
     {
-        _attackIcon = Managers.Resource.Load<Texture2D>("Textures/Cursor/Attack");
-        _basicIcon = Managers.Resource.Load<Texture2D>("Textures/Cursor/Basic");
-
         _stat = gameObject.GetComponent<PlayerStat>();
 
 		Managers.Input.MouseAction -= OnMouseEvent;
@@ -49,6 +39,17 @@ public class PlayerController : MonoBehaviour
 
 	void UpdateMoving()
 	{
+		// 마우스 클릭 타겟이 존재한다면
+		if (_lockTarget != null)
+		{
+			float distance = (_destPos - transform.position).magnitude;
+			if (distance <= 1)
+			{
+				_state = PlayerState.Skill;
+				return;
+			}
+		}
+
 		Vector3 dir = _destPos - transform.position;
 		if (dir.magnitude < 0.1f)
 		{
@@ -88,10 +89,15 @@ public class PlayerController : MonoBehaviour
 		anim.SetFloat("speed", 0);
 	}
 
+	void UpdateSkill()
+	{
+		Animator anim = GetComponent<Animator>();
+
+		anim.SetBool("attack", true);
+	}
+
 	void Update()
     {
-		UpdateMouseCursor();
-
 		switch (_state)
 		{
 			case PlayerState.Die:
@@ -103,38 +109,11 @@ public class PlayerController : MonoBehaviour
 			case PlayerState.Idle:
 				UpdateIdle();
 				break;
+			case PlayerState.Skill:
+				UpdateSkill();
+				break;
 		}
 	}
-
-	// 마우스 피아식별
-	void UpdateMouseCursor()
-	{
-		if (Input.GetMouseButton(0))
-			return;
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100.0f, _mask))
-        {
-            if (hit.collider.gameObject.layer == (int)Define.Layer.Monster)
-            {
-				if (_cursorType != CursorType.Attack)
-				{
-                    Cursor.SetCursor(_attackIcon, new Vector2(_attackIcon.width / 5, 0), CursorMode.Auto);
-					_cursorType = CursorType.Attack;
-                }
-			}
-            else
-            {
-				if (_cursorType != CursorType.Basic)
-				{
-					Cursor.SetCursor(_basicIcon, new Vector2(_basicIcon.width / 3, 0), CursorMode.Auto);
-					_cursorType= CursorType.Basic;
-                }
-            }
-        }
-    }
 
 	// if Ground/Monster == true
 	int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
@@ -172,11 +151,6 @@ public class PlayerController : MonoBehaviour
 						_destPos = _lockTarget.transform.position;
 					else if (raycastHit)
 						_destPos = hit.point;
-                    break;
-                }
-            case Define.MouseEvent.PointerUp:
-				{
-                    _lockTarget = null;
                     break;
                 }
         }

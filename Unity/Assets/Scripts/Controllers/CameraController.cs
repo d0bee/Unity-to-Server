@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
         if (_mode == Define.CameraMode.QuarterView)
         {
             RaycastHit hit;
-            if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Block")))
+            if (Physics.Raycast(_player.transform.position + new Vector3(0,4,0), _delta, out hit, _delta.magnitude, LayerMask.GetMask("Block")))
             {
                 float dist = (hit.point - _player.transform.position).magnitude * 0.8f;
                 transform.position = _player.transform.position + _delta.normalized * dist;
