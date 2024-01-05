@@ -8406,6 +8406,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 21392983583879848, guid: ac0aab6b738f19049844658069fae2c0,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 65443572983791201, guid: ac0aab6b738f19049844658069fae2c0,
         type: 3}
       propertyPath: m_Layer
@@ -8524,7 +8529,7 @@ PrefabInstance:
     - target: {fileID: 1545075525079651841, guid: ac0aab6b738f19049844658069fae2c0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.863
       objectReference: {fileID: 0}
     - target: {fileID: 1545075525079651841, guid: ac0aab6b738f19049844658069fae2c0,
         type: 3}
@@ -8534,7 +8539,7 @@ PrefabInstance:
     - target: {fileID: 1545075525079651841, guid: ac0aab6b738f19049844658069fae2c0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.33
+      value: 0.121
       objectReference: {fileID: 0}
     - target: {fileID: 1545075525079651841, guid: ac0aab6b738f19049844658069fae2c0,
         type: 3}
@@ -9015,6 +9020,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187570134531372453, guid: ac0aab6b738f19049844658069fae2c0,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.13371599
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187570134531372453, guid: ac0aab6b738f19049844658069fae2c0,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.008332491
       objectReference: {fileID: 0}
     - target: {fileID: 6376804753809036602, guid: ac0aab6b738f19049844658069fae2c0,
         type: 3}
@@ -14978,6 +14993,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5231550443633345225, guid: babb0bbba29551e448100482305ff76d,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.1901383
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231550443633345225, guid: babb0bbba29551e448100482305ff76d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.0637872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231550443633345225, guid: babb0bbba29551e448100482305ff76d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.14218986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231550443633345225, guid: babb0bbba29551e448100482305ff76d,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.05599773
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231550443633345225, guid: babb0bbba29551e448100482305ff76d,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0046194196
+      objectReference: {fileID: 0}
     - target: {fileID: 9023870420674387680, guid: babb0bbba29551e448100482305ff76d,
         type: 3}
       propertyPath: m_Layer
