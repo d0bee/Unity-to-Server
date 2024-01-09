@@ -1,4 +1,4 @@
-# ```Unity Client Project```
+# ```[240110]Chapter 1. Unity Client Project```
 ![스크린샷 2024-01-10 043140](https://github.com/d0bee/Unity-to-Server/assets/140006827/90edacff-ed13-494b-81dc-8f7575ed2335)
 
 Unity 프레임워크를 사용하여 개인 프로젝트를 진행한다.
