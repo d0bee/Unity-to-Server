@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}</ProjectGuid>
+    <ProjectGuid>{C3DA89E1-70C6-7D6C-993E-C8F831D35880}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,26 +55,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Resources\Art\Male Fighter Mecanim Animation Pack FREE\FighterAnimationDemoFREE.cs" />
      <Compile Include="Assets\Scripts\Contents\PlayerStat.cs" />
+     <Compile Include="Assets\Scripts\Contents\SpawningPool.cs" />
      <Compile Include="Assets\Scripts\Contents\Stat.cs" />
+     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
      <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
      <Compile Include="Assets\Scripts\Controllers\CursorController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\MonsterController.cs" />
      <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Data\Data.Contents.cs" />
-     <Compile Include="Assets\Scripts\Managers\DataManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Contents\GameManagerEx.cs" />
+     <Compile Include="Assets\Scripts\Managers\Core\DataManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Core\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Core\PoolManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Core\Poolable.cs" />
+     <Compile Include="Assets\Scripts\Managers\Core\ResourceManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Core\SceneManagerEx.cs" />
+     <Compile Include="Assets\Scripts\Managers\Core\SoundManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Core\UIManager.cs" />
      <Compile Include="Assets\Scripts\Managers\Managers.cs" />
-     <Compile Include="Assets\Scripts\Managers\PoolManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\Poolable.cs" />
-     <Compile Include="Assets\Scripts\Managers\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\SceneManagerEx.cs" />
-     <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
      <Compile Include="Assets\Scripts\Scenes\BaseScene.cs" />
      <Compile Include="Assets\Scripts\Scenes\GameScene.cs" />
      <Compile Include="Assets\Scripts\Scenes\LoginScene.cs" />
-     <Compile Include="Assets\Scripts\TestSound.cs" />
      <Compile Include="Assets\Scripts\UI\Popup\UI_Button.cs" />
      <Compile Include="Assets\Scripts\UI\Popup\UI_Popup.cs" />
      <Compile Include="Assets\Scripts\UI\Scene\UI_Inven.cs" />
@@ -82,12 +84,14 @@
      <Compile Include="Assets\Scripts\UI\SubItem\UI_Inven_Item.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Base.cs" />
      <Compile Include="Assets\Scripts\UI\UI_EventHandler.cs" />
+     <Compile Include="Assets\Scripts\UI\WorldSpace\UI_HPBar.cs" />
      <Compile Include="Assets\Scripts\Utils\Define.cs" />
      <Compile Include="Assets\Scripts\Utils\Extension.cs" />
      <Compile Include="Assets\Scripts\Utils\Util.cs" />
      <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_fuku.shader" />
      <None Include="Assets\Resources\Art\Town\Readme.txt" />
      <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_akarami_blend.shader" />
+     <None Include="Assets\Resources\Art\Knight\Shader\pbrDoublesided.shader" />
      <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_hair_ds.shader" />
      <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_hada.shader" />
      <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_fuku_ds.shader" />
@@ -98,34 +102,34 @@
      <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_hair.shader" />
      <None Include="Assets\Resources\Art\UnityChan\Shader\Unitychan_chara_eye_blend.shader" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Unity_temp/240105/Unity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/gusdu/Downloads/unity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

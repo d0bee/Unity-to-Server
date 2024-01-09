@@ -5,31 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class LoginScene : BaseScene
 {
-    protected override void init()
+    protected override void Init()
     {
-        base.init();
+        base.Init();
+        // 상위 클래스의 Init 메서드를 먼저 호출합니다.
 
         SceneType = Define.Scene.Login;
-
-        for (int i = 0; i < 2; i++)
-        {
-            Managers.Resource.Instantiate("UnityChan");
-        }
+        // SceneType을 Define.Scene.Login으로 설정합니다.
+        // 현재 씬의 타입을 나타냅니다.
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            // Unity의 SceneManager.LoadScene을 이용하여 화면 전환을 사용해도 되지만 직접 작성한 SceneManagerEx를 사용하여 전환을 시도
-            // BuildSetting이 설정되어 있어야 함.
             Managers.Scene.LoadScene(Define.Scene.Game);
         }
+        // 키보드의 Q 키가 눌리면 Managers.Scene.LoadScene 메서드를 호출하여 Define.Scene.Game 씬을 로드합니다.
+        // Managers.Scene은 씬을 관리하는 매니저입니다.
     }
 
     public override void Clear()
     {
         Debug.Log("LoginScene Clear!");
+        // Clear 메서드가 호출되면 "LoginScene Clear!"라는 로그를 출력합니다.
     }
-
 }

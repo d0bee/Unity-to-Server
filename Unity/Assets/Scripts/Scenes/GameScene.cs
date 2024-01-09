@@ -4,30 +4,46 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
-    // Coroutine 상태저장, 일정 시간 뒤 재시작 등에서 쓰인다.
-    // yield return 일시 반환, yield break 영구 반환
-    // Update문 외에도 특정 반복이 필요할 때 주로 사용된다.
-    // Update/Invoke와 다르게 매개변수 전달 가능
-    // Coroutine 잘못 사용시 템복사 등의 문제 가능
-    // 왜? 코루틴 작업 중에 DB저장과 아이템 이동 사이에
-    // 어떤 이유로 yield return이 있어야 할 경우에 발생하는 DB와 로컬 괴리감으로 인해서 나타날 수 있다.
-    // + 일정 시간 뒤에 발동되는 캐스팅 스킬 등의 작업때 사용된다.
-   
-    protected override void init()
+    protected override void Init()
     {
-        base.init();
+        base.Init();
+        // 상위 클래스의 Init 메서드를 먼저 호출합니다.
 
         SceneType = Define.Scene.Game;
-
-        Managers.UI.ShowSceneUI<UI_Inven>();
+        // SceneType을 Define.Scene.Game으로 설정합니다.
+        // 현재 씬의 타입을 나타냅니다.
 
         Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
+        // Managers.Data.StatDict를 사용하여 int형 키와 Data.Stat 형식의 값을 가지는 딕셔너리 dict를 선언합니다.
+        // Managers.Data.StatDict는 게임 내 통계 데이터를 관리하는 매니저입니다.
 
         gameObject.GetOrAddComponent<CursorController>();
+        // 현재 게임 오브젝트에 CursorController 컴포넌트를 추가합니다.
+        // CursorController는 커서를 제어하는 역할을 합니다.
+
+        GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "UnityChan");
+        // Managers.Game.Spawn 메서드를 사용하여 Define.WorldObject.Player 타입의 오브젝트를 생성합니다.
+        // 생성된 오브젝트의 이름은 "UnityChan"으로 설정됩니다.
+        // Managers.Game은 게임 오브젝트를 생성하고 관리하는 매니저입니다.
+
+        Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
+        // Camera.main.gameObject에 CameraController 컴포넌트를 추가합니다.
+        // CameraController는 카메라를 제어하는 역할을 합니다.
+        // SetPlayer 메서드를 사용하여 플레이어 오브젝트를 설정합니다.
+
+        GameObject go = new GameObject { name = "SpawningPool" };
+        // 이름이 "SpawningPool"인 빈 게임 오브젝트 go를 생성합니다.
+
+        SpawningPool pool = go.GetOrAddComponent<SpawningPool>();
+        // go에 SpawningPool 컴포넌트를 추가합니다.
+        // SpawningPool은 몬스터를 생성하고 관리하는 역할을 합니다.
+
+        pool.SetKeepMonsterCount(2);
+        // SetKeepMonsterCount 메서드를 사용하여 유지할 몬스터의 개수를 2로 설정합니다.
     }
 
     public override void Clear()
     {
+        // 하위 클래스에서 Clear 메서드를 구현해야 합니다.
     }
-
 }
